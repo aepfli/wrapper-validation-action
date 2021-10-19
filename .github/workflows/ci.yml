@@ -39,6 +39,8 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Setting up GitLab CI
+        run: git log -1 --pretty=format:'%h %H %D'
+      - name: Setting up GitLab CI
         run: |
           npm install -g gitlab-ci-local
           mkdir -p .gitlab-ci-local
